@@ -65,7 +65,8 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--font-color)
+    color: var(--font-color);
+    overflow-x: scroll;
 }
 .TodoItem_button-Checked {
     color: var(--button-completed);    
@@ -80,6 +81,14 @@ html {
     align-items: center;
     color: var(--font-color);
     text-decoration: line-through;
+    overflow-x: scroll;
+
+}
+.TodoItem_text::-webkit-scrollbar {
+    display: none;
+}
+.TodoItem_text_completed::-webkit-scrollbar {
+    display: none;
 }
 .TodoItem_button-Removed {
     color: var(--button-completed);    

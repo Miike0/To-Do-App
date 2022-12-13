@@ -15,7 +15,7 @@ const toDos = [
     { text: 'Prueba 6', completed: true},
     { text: 'Prueba 7', completed: false},
     { text: 'Prueba 8', completed: false},
-    { text: 'Prueba 9', completed: true},
+    { text: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', completed: true},
 
 
 ];
