@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --button-check: #A5C9CA;
+    --button-check-hover: blue;
+
+    --button-completed: #2C3333;
+   
+
+    --button-remove-hover: red;
+    --button-remove: #A5C9CA;
+    
+
+    --font-color: #2C3333;
+    --shadow-color: #2C3333;
+    --background-color: #E7F6F2;
+}
+html {
+    font-size: 62.5%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.TodoItem_container {
+    width: 850px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 5px 5px var(--shadow-color);
+    background-color: var(--background-color);
+}
+.TodoItem_button {
+    width: 50px;
+    height: 50px;
+}
+.TodoItem_button-Check {
+    color: var(--button-check);
+    transform: rotate(0);
+    transition: .1s ease;
+}
+.TodoItem_button-Remove {
+    color: var(--button-remove);
+    transform: rotate(0);
+    transition: .1s ease;
+
+}
+.TodoItem_button-Check:hover {
+    transform: rotate(360deg);
+    transition: 1s ease;
+    color: var(--button-check-hover);
+}
+.TodoItem_button-Remove:hover {
+    transform: rotate(360deg);
+    transition: 1s ease;
+    color: var(--button-remove-hover);
+}
+.TodoItem_text {
+    width: 720px;
+    height: 50px;
+    margin: auto;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--font-color)
+}
+.TodoItem_button-Checked {
+    color: var(--button-completed);    
+}
+.TodoItem_text_completed {
+    width: 720px;
+    height: 50px;
+    margin: auto;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--font-color);
+    text-decoration: line-through;
+}
+.TodoItem_button-Removed {
+    color: var(--button-completed);    
+}

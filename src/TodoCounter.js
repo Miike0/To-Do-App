@@ -1,8 +1,14 @@
 import React from "react";
+import './TodoCounter.css';
+
+const urlBackground = require('./img/background-up.jpg');
 
 function TodoCounter() {
     return (
-        <h2>2 of 3 TODOs completed</h2>
+        <div className="TodoCounter_container">
+            <h2 className="TodoCounter_title">2 OF 3 TO DO COMPLETED</h2>
+            <img src={urlBackground} alt="Background image" className="TodoCounter_img"/>
+        </div>
 
     );
 }

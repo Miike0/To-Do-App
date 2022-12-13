@@ -1,8 +1,14 @@
 import React from "react";
+import './TodoSearch.css';
+import SearchIcon from '@mui/icons-material/Search';
 
 function TodoSearch() {
     return (
-        <input placeholder="Type something to do"/>
+        <div className="TodoSearch_container">
+            <input className="TodoSearch_input" placeholder="Search Task"/>
+            <SearchIcon className="TodoSearch_icon" sx={{fontSize: 50}}/>
+
+        </div>
 
     );
 }

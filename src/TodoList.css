@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.TodoList_container {
+    width: 900px;
+    height: 400px;
+    overflow-y: scroll;
+    margin-top: 20px;
+}
+.TodoList_List {
+    width: 900px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    list-style: none;
+}
+.TodoList_container::-webkit-scrollbar {
+    display: none;
+}

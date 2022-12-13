@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --color-button: #A5C9CA;
+    --color-button-hover: blue;
+    --shadow-color: #2C3333;
+
+}
+html {
+    font-size: 62.5%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.CreateTodoButton {
+    display: flex;
+    justify-self:end;
+    align-self: end;
+    bottom: 0;
+    box-shadow: 0 4px 4px 0 var(--shadow-color);
+
+}
+.CreateTodoButton_icon {
+    color: var(--color-button);
+    transform: rotate(0);
+    transition: .1s ease;
+    border-radius: 50%;
+}
+.CreateTodoButton_icon:hover {
+    color: var(--color-button-hover);
+    transform: rotate(360deg);
+    transition: 1s ease;
+
+}
