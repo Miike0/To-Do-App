@@ -24,3 +24,14 @@ html {
 .TodoList_container::-webkit-scrollbar {
     display: none;
 }
+@media only screen and (max-width: 600px) {
+    .TodoList_container {
+        width: 280px;
+        height: 340px;
+        margin-top: 0;
+    }
+    .TodoList_List {
+        width: 280px;
+        height: auto;
+    }
+}

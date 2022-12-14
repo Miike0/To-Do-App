@@ -18,11 +18,14 @@ html {
     height: auto;
     display: flex;
     flex-direction: row;
-    margin: 10px;
+    justify-self: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .TodoSearch_icon {
     border-bottom: solid 2px var(--border-bottom);
     color: var(--color-icon);
+    
 }
 .TodoSearch_input {
     width: 500px;
@@ -37,4 +40,12 @@ html {
 }
 .TodoSearch_input:focus {
     outline: none;
+}
+@media only screen and (max-width: 600px) {
+    .TodoSearch_input {
+        width: 230px;
+        height: 30px;
+        font-size: 1.5rem;
+    }
+
 }

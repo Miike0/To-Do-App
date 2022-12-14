@@ -82,7 +82,6 @@ html {
     color: var(--font-color);
     text-decoration: line-through;
     overflow-x: scroll;
-
 }
 .TodoItem_text::-webkit-scrollbar {
     display: none;
@@ -92,4 +91,27 @@ html {
 }
 .TodoItem_button-Removed {
     color: var(--button-completed);    
+}
+.TodoItem-container_completed {
+    filter: sepia(100%);
+}
+@media only screen and (max-width: 600px) {
+    .TodoItem_container {
+        width: 270px;
+        height: 40px;
+        margin: 5px;
+    }
+    .TodoItem_text {
+        width: 270px;
+        font-size: 1.6rem;
+    }
+    .TodoItem_text_completed {
+        width: 270px;
+        font-size: 1.6rem;
+    }
+    .TodoItem_button {
+        width: 40px;
+        height: 40px;
+    }
+
 }

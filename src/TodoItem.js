@@ -4,19 +4,24 @@ import TaskAltOutlinedIcon from '@mui/icons-material/TaskAltOutlined';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import UnpublishedOutlinedIcon from '@mui/icons-material/UnpublishedOutlined';
 import './TodoItem.css';
+import { useMediaQuery } from "react-responsive";
 
 function TodoItem(props) {
+    const isDesktopOrLapton = useMediaQuery({query : '(min-width: 1224px)'});
+    const isMobile = useMediaQuery({query: '(max-width: 600px)'});
     return (
-        <li className="TodoItem_container">
+        <li className={`TodoItem_container ${props.completed ? 'TodoItem-container_completed' : ''}`}>
 
 
             <IconButton className={`${(props.completed)? 'Icon-checked_activated' : 'TodoItem_button'}`} fontSize="large">
            
                     {
-                            props.completed ? 
-                            (<UnpublishedOutlinedIcon sx={{fontSize: 30}} className="TodoItem_button-Checked" />)
+                            props.completed ?
+                            ((isDesktopOrLapton && <UnpublishedOutlinedIcon sx={{fontSize: 30}} className="TodoItem_button-Checked" disabled/>)
+                            || (isMobile && <UnpublishedOutlinedIcon sx={{fontSize: 25}} className="TodoItem_button-Checked" disabled />))
                             :
-                            (<TaskAltOutlinedIcon sx={{fontSize: 30}} className="TodoItem_button-Check" />)
+                            ((isDesktopOrLapton && <TaskAltOutlinedIcon sx={{fontSize: 30}} className="TodoItem_button-Check"/>)
+                            || (isMobile && <TaskAltOutlinedIcon sx={{fontSize: 25}} className="TodoItem_button-Check" />))
                     }
                 
                 </IconButton>
@@ -33,9 +38,11 @@ function TodoItem(props) {
             <IconButton className="TodoItem_button" fontSize="large">
                 {
                     props.completed ?
-                    (<HighlightOffIcon sx={{fontSize: 30}} className="TodoItem_button-Removed"/>)
+                    ((isDesktopOrLapton && <HighlightOffIcon sx={{fontSize: 30}} className="TodoItem_button-Removed" disabled/>)
+                    || (isMobile && <HighlightOffIcon sx={{fontSize: 25}} className="TodoItem_button-Removed" disabled/>))
                     :
-                    (<HighlightOffIcon sx={{fontSize: 30}} className="TodoItem_button-Remove"/>)
+                    ((isDesktopOrLapton && <HighlightOffIcon sx={{fontSize: 30}} className="TodoItem_button-Remove"/>)
+                    || (isMobile && <HighlightOffIcon sx={{fontSize: 25}} className="TodoItem_button-Remove"/>))
                 }
 
                 

@@ -15,13 +15,14 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 .TodoCounter_title {
     font-size: 3rem;
     color: var(--title);
     filter: none;
-    position: relative;
     z-index: 0;
+    text-align: center;
 }
 .TodoCounter_img {
     width: 100%;
@@ -30,4 +31,21 @@ html {
     position: absolute;
     filter: grayscale(100%);
     z-index: -1;
+}
+@media only screen and (max-width: 600px) {
+    .TodoCounter_container {
+        width: 100%;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .TodoCounter_title {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    .TodoCounter_img {
+        width: 100%;
+        height: 60px;
+    }
 }

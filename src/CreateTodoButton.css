@@ -14,8 +14,8 @@ html {
 .CreateTodoButton {
     display: flex;
     justify-self:end;
-    align-self: end;
-    bottom: 0;
+    align-self: flex-end;
+    bottom: -180px;
     box-shadow: 0 4px 4px 0 var(--shadow-color);
 
 }
@@ -29,5 +29,11 @@ html {
     color: var(--color-button-hover);
     transform: rotate(360deg);
     transition: 1s ease;
+
+}
+@media only screen and (max-width: 600px) {
+    .CreateTodoButton {
+        bottom: 0;
+    }
 
 }

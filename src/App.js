@@ -1,9 +1,11 @@
 import React from "react";
+import { useMediaQuery } from "react-responsive";
 import { TodoCounter } from "./TodoCounter";
 import { TodoSearch } from "./TodoSearch";
 import { TodoList } from "./TodoList";
 import { TodoItem } from "./TodoItem";
 import { CreateTodoButton } from "./CreateTodoButton";
+import { CurrentDate } from "./CurrentDate";
 import './App.css';
 
 const toDos = [
@@ -21,6 +23,8 @@ const toDos = [
 ];
 
 function App() {
+  const isDesktopOrLapton = useMediaQuery({query : '(min-width: 1224px)'});
+  const isMobile = useMediaQuery({query: '(max-width: 600px)'});
   return (
     <React.Fragment>
 
@@ -28,7 +32,12 @@ function App() {
 
       <div className="TodoContainer">
 
-        <TodoSearch />
+        <div className="TodoSearch-CurrentDate_Container">
+          <TodoSearch />
+          {isDesktopOrLapton && <CurrentDate/>
+}
+        </div>
+        
 
         <div className="Tasks_container">
 
