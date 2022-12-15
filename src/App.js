@@ -8,7 +8,7 @@ import { CreateTodoButton } from "./CreateTodoButton";
 import { CurrentDate } from "./CurrentDate";
 import './App.css';
 
-const toDos = [
+const defaultToDos = [
     { text: 'Prueba 1', completed: false},
     { text: 'Prueba 2', completed: false},
     { text: 'Prueba 3', completed: true},
@@ -23,17 +23,46 @@ const toDos = [
 ];
 
 function App() {
+
+  const [toDos, setToDos] = React.useState(defaultToDos);
+
+  const [searchValue, setSearchValue] = React.useState('');
+
+  const completedToDos = toDos.filter(todo =>  !!todo.completed).length;
+  const totalToDos = toDos.length;
+
+  let searchedToDos = [];
+
+  if (searchedToDos.length >= 1) {
+    searchedToDos = toDos;
+  } else {
+
+    searchedToDos = toDos.filter(todo => {
+      const toDoText = todo.text.toLowerCase();
+      const searchText = searchValue.toLowerCase();
+
+      return toDoText.includes(searchText);
+    });
+
+  }
+
   const isDesktopOrLapton = useMediaQuery({query : '(min-width: 1224px)'});
   const isMobile = useMediaQuery({query: '(max-width: 600px)'});
   return (
     <React.Fragment>
 
-      <TodoCounter />
+      <TodoCounter 
+        total={totalToDos}
+        completed={completedToDos}
+      />
 
       <div className="TodoContainer">
 
         <div className="TodoSearch-CurrentDate_Container">
-          <TodoSearch />
+          <TodoSearch 
+            searchValue={searchValue}
+            setSearchValue={setSearchValue}
+          />
           {isDesktopOrLapton && <CurrentDate/>
 }
         </div>
@@ -44,7 +73,7 @@ function App() {
 
           <TodoList>
             {
-              toDos.map(todo => (
+              searchedToDos.map(todo => (
                 <TodoItem key={todo.text} text={todo.text} completed={todo.completed}/>
               ))
             }
