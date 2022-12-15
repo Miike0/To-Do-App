@@ -10,19 +10,12 @@ function TodoItem(props) {
     const isDesktopOrLapton = useMediaQuery({query : '(min-width: 1224px)'});
     const isMobile = useMediaQuery({query: '(max-width: 600px)'});
 
-    const onComplete = () => {
-        alert('Task completed: ' + props.text);
-    };
-
-    const onDelete = () => {
-        alert('Task deleted: ' + props.text);
-    };
 
     return (
         <li className={`TodoItem_container ${props.completed ? 'TodoItem-container_completed' : ''}`}>
 
 
-            <IconButton className={`${(props.completed)? 'Icon-checked_activated' : 'TodoItem_button'}`} fontSize="large" onClick={onComplete}>
+            <IconButton className={`${(props.completed)? 'Icon-checked_activated' : 'TodoItem_button'}`} fontSize="large" onClick={props.onComplete}>
            
                     {
                             props.completed ?
@@ -44,11 +37,11 @@ function TodoItem(props) {
             }
             
 
-            <IconButton className="TodoItem_button" fontSize="large" onClick={onDelete}>
+            <IconButton className="TodoItem_button" fontSize="large" onClick={props.onDelete}>
                 {
                     props.completed ?
-                    ((isDesktopOrLapton && <HighlightOffIcon sx={{fontSize: 30}} className="TodoItem_button-Removed" disabled/>)
-                    || (isMobile && <HighlightOffIcon sx={{fontSize: 25}} className="TodoItem_button-Removed" disabled/>))
+                    ((isDesktopOrLapton && <HighlightOffIcon sx={{fontSize: 30}} className="TodoItem_button-Remove"/>)
+                    || (isMobile && <HighlightOffIcon sx={{fontSize: 25}} className="TodoItem_button-Remove"/>))
                     :
                     ((isDesktopOrLapton && <HighlightOffIcon sx={{fontSize: 30}} className="TodoItem_button-Remove"/>)
                     || (isMobile && <HighlightOffIcon sx={{fontSize: 25}} className="TodoItem_button-Remove"/>))

@@ -46,6 +46,30 @@ function App() {
 
   }
 
+  const completeTodo = (text) => {
+    const todoIndex = toDos.findIndex(
+        todo => todo.text === text
+    );
+    
+    const newTodDos = [...toDos];
+
+    newTodDos[todoIndex].completed = true;
+
+    setToDos(newTodDos);
+  };
+
+  const deleteToDo = (text) => {
+    const todoIndex = toDos.findIndex(
+        todo => todo.text === text
+    );
+    
+    const newTodDos = [...toDos];
+
+    newTodDos.splice(todoIndex, 1);
+
+    setToDos(newTodDos);
+  };
+
   const isDesktopOrLapton = useMediaQuery({query : '(min-width: 1224px)'});
   const isMobile = useMediaQuery({query: '(max-width: 600px)'});
   return (
@@ -74,7 +98,14 @@ function App() {
           <TodoList>
             {
               searchedToDos.map(todo => (
-                <TodoItem key={todo.text} text={todo.text} completed={todo.completed}/>
+                <TodoItem 
+                key={todo.text} 
+                text={todo.text} 
+                completed={todo.completed} 
+                onComplete={() => completeTodo(todo.text)}
+                onDelete={() => deleteToDo(todo.text)}
+
+                />
               ))
             }
           </TodoList>

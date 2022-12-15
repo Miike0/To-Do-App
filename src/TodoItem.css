@@ -89,12 +89,6 @@ html {
 .TodoItem_text_completed::-webkit-scrollbar {
     display: none;
 }
-.TodoItem_button-Removed {
-    color: var(--button-completed);    
-}
-.TodoItem-container_completed {
-    filter: sepia(100%);
-}
 @media only screen and (max-width: 600px) {
     .TodoItem_container {
         width: 270px;
