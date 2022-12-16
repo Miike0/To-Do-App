@@ -1,12 +1,6 @@
 import React from "react";
-import { useMediaQuery } from "react-responsive";
-import { TodoCounter } from "../TodoCounter";
-import { TodoSearch } from "../TodoSearch";
-import { TodoList } from "../TodoList";
-import { TodoItem } from "../TodoItem";
-import { CreateTodoButton } from "../CreateTodoButton";
-import { CurrentDate } from "../CurrentDate";
 import './App.css';
+import { AppUI } from "./AppUI";
 
 const defaultToDos = [
     { text: 'Prueba 1', completed: false},
@@ -70,57 +64,17 @@ function App() {
     setToDos(newTodDos);
   };
 
-  const isDesktopOrLapton = useMediaQuery({query : '(min-width: 1224px)'});
-  const isMobile = useMediaQuery({query: '(max-width: 600px)'});
+  
   return (
-    <React.Fragment>
-
-      <TodoCounter 
-        total={totalToDos}
-        completed={completedToDos}
+      <AppUI
+        totalToDos={totalToDos}
+        completedToDos={completedToDos}
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
+        searchedToDos={searchedToDos}
+        completeTodo={completeTodo}
+        deleteToDo={deleteToDo}
       />
-
-      <div className="TodoContainer">
-
-        <div className="TodoSearch-CurrentDate_Container">
-          <TodoSearch 
-            searchValue={searchValue}
-            setSearchValue={setSearchValue}
-          />
-          {isDesktopOrLapton && <CurrentDate/>
-}
-        </div>
-        
-
-        <div className="Tasks_container">
-
-
-          <TodoList>
-            {
-              searchedToDos.map(todo => (
-                <TodoItem 
-                key={todo.text} 
-                text={todo.text} 
-                completed={todo.completed} 
-                onComplete={() => completeTodo(todo.text)}
-                onDelete={() => deleteToDo(todo.text)}
-
-                />
-              ))
-            }
-          </TodoList>
-
-          <CreateTodoButton />
-            
-        </div>
-
-
-
-      </div>
-
-
-
-    </React.Fragment>
   );
 }
 
