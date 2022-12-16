@@ -1,7 +1,7 @@
 import React from "react";
 import './TodoCounter.css';
 
-const urlBackground = require('./img/background-up.jpg');
+const urlBackground = require('../img/background-up.jpg');
 
 function TodoCounter({ total, completed }) {
     return (

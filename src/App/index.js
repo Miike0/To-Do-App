@@ -1,11 +1,11 @@
 import React from "react";
 import { useMediaQuery } from "react-responsive";
-import { TodoCounter } from "./TodoCounter";
-import { TodoSearch } from "./TodoSearch";
-import { TodoList } from "./TodoList";
-import { TodoItem } from "./TodoItem";
-import { CreateTodoButton } from "./CreateTodoButton";
-import { CurrentDate } from "./CurrentDate";
+import { TodoCounter } from "../TodoCounter";
+import { TodoSearch } from "../TodoSearch";
+import { TodoList } from "../TodoList";
+import { TodoItem } from "../TodoItem";
+import { CreateTodoButton } from "../CreateTodoButton";
+import { CurrentDate } from "../CurrentDate";
 import './App.css';
 
 const defaultToDos = [
