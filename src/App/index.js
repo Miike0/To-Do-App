@@ -16,21 +16,40 @@ import { AppUI } from "./AppUI";
 
 // ];
 
-function App() {
+function useLocalStorage(itemName, initialValue) {
 
-  const localStorageToDos = localStorage.getItem('TODOS_V1');
+  const localStorageItem = localStorage.getItem(itemName);
   
-  let parsedToDos;
+  let parsedItem;
+  
 
-  if(!localStorageToDos) {
-    localStorage.setItem('TODOS_V1', JSON.stringify([]));
-    parsedToDos = [];
+  if(!localStorageItem) {
+    localStorage.setItem(itemName, JSON.stringify(initialValue));
+    parsedItem = initialValue;
 
   } else {
-    parsedToDos = JSON.parse(localStorageToDos);
+    parsedItem = JSON.parse(localStorageItem);
   }
 
-  const [toDos, setToDos] = React.useState(parsedToDos);
+  const [item, setItem] = React.useState(parsedItem);
+
+
+  const saveItem = (newItem) => {
+    const stringifyToDos = JSON.stringify(newItem);
+    localStorage.setItem(itemName, stringifyToDos);
+
+    setItem(newItem);
+  };
+
+  return [
+    item,
+    saveItem,
+  ];
+}
+
+function App() {
+
+  const [toDos, saveTodos] = useLocalStorage('toDos', []);
 
   const [searchValue, setSearchValue] = React.useState('');
 
@@ -61,7 +80,7 @@ function App() {
 
     newTodDos[todoIndex].completed = true;
 
-    saveChangesInLS(newTodDos);
+    saveTodos(newTodDos);
   };
 
   const deleteToDo = (text) => {
@@ -73,15 +92,10 @@ function App() {
 
     newToDos.splice(todoIndex, 1);
 
-    saveChangesInLS(newToDos);
+    saveTodos(newToDos);
   };
 
-  const saveChangesInLS = (saveChanges) => {
-    const stringifyToDos = JSON.stringify(saveChanges);
-    localStorage.setItem('TODOS_V1', stringifyToDos);
-
-    setToDos(saveChanges);
-  };
+ 
 
   
   return (
