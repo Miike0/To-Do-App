@@ -6,6 +6,7 @@ import { TodoList } from "../TodoList";
 import { TodoItem } from "../TodoItem";
 import { CreateTodoButton } from "../CreateTodoButton";
 import { CurrentDate } from "../CurrentDate";
+import './AppUI.css';
 
 function AppUI (props) {
     const isDesktopOrLapton = useMediaQuery({query : '(min-width: 1224px)'});
@@ -34,6 +35,12 @@ function AppUI (props) {
 
 
                 <TodoList>
+                    {props.error && <p className="State-p">Error!</p>}
+
+                    {props.loading && <p className="State-p">Loading...</p>}
+
+                    {(!props.loading && !props.searchedToDos.length) && <p className="State-p">Create your first To Do!</p>}
+
                     {
                     props.searchedToDos.map(todo => (
                         <TodoItem 
