@@ -6,26 +6,23 @@ import { TodoList } from "../TodoList";
 import { TodoItem } from "../TodoItem";
 import { CreateTodoButton } from "../CreateTodoButton";
 import { CurrentDate } from "../CurrentDate";
+import { TodoContext } from "../TodoContext";
 import './AppUI.css';
 
-function AppUI (props) {
+function AppUI () {
+    const value = React.useContext(TodoContext);
+
     const isDesktopOrLapton = useMediaQuery({query : '(min-width: 1224px)'});
     const isMobile = useMediaQuery({query: '(max-width: 600px)'});
     return (
         <React.Fragment>
 
-            <TodoCounter 
-                total={props.totalToDos}
-                completed={props.completedToDos}
-            />
+            <TodoCounter/>
 
             <div className="TodoContainer">
 
                 <div className="TodoSearch-CurrentDate_Container">
-                <TodoSearch 
-                    searchValue={props.searchValue}
-                    setSearchValue={props.setSearchValue}
-                />
+                <TodoSearch/>
                 {isDesktopOrLapton && <CurrentDate/>}
                 
                 </div>
@@ -34,26 +31,27 @@ function AppUI (props) {
                 <div className="Tasks_container">
 
 
-                <TodoList>
-                    {props.error && <p className="State-p">Error!</p>}
+                    <TodoList>
+                    {value.error && <p className="State-p">Error!</p>}
 
-                    {props.loading && <p className="State-p">Loading...</p>}
+                    {value.loading && <p className="State-p">Loading...</p>}
 
-                    {(!props.loading && !props.searchedToDos.length) && <p className="State-p">Create your first To Do!</p>}
+                    {(!value.loading && !value.searchedToDos.length) && <p className="State-p">Create your first To Do!</p>}
 
                     {
-                    props.searchedToDos.map(todo => (
+                    value.searchedToDos.map(todo => (
                         <TodoItem 
                         key={todo.text} 
                         text={todo.text} 
                         completed={todo.completed} 
-                        onComplete={() => props.completeTodo(todo.text)}
-                        onDelete={() => props.deleteToDo(todo.text)}
+                        onComplete={() => value.completeTodo(todo.text)}
+                        onDelete={() => value.deleteToDo(todo.text)}
 
                         />
                     ))
                     }
                 </TodoList>
+
 
                 <CreateTodoButton />
                     

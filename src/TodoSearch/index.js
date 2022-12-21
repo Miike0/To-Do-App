@@ -2,11 +2,11 @@ import React from "react";
 import './TodoSearch.css';
 import SearchIcon from '@mui/icons-material/Search';
 import { useMediaQuery } from "react-responsive";
+import { TodoContext } from "../TodoContext";
 
+function TodoSearch() {
 
-
-
-function TodoSearch({ searchValue, setSearchValue }) {
+    const { searchValue, setSearchValue } = React.useContext(TodoContext);
 
     const isDesktopOrLapton = useMediaQuery({query : '(min-width: 1024px)'});
     const isMobile = useMediaQuery({query: '(max-width: 600px)'});
