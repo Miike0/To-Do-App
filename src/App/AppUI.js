@@ -7,6 +7,7 @@ import { TodoItem } from "../TodoItem";
 import { CreateTodoButton } from "../CreateTodoButton";
 import { CurrentDate } from "../CurrentDate";
 import { TodoContext } from "../TodoContext";
+import { Modal } from "../Modal";
 import './AppUI.css';
 
 function AppUI () {
@@ -52,8 +53,15 @@ function AppUI () {
                     }
                 </TodoList>
 
+                    {!!value.openModal && (
+                        <Modal>
+                            <p>Prueba</p>
+                        </Modal>
+                    )}
 
-                <CreateTodoButton />
+                <CreateTodoButton 
+                    setOpenModal={value.setOpenModal}
+                />
                     
                 </div>
 
