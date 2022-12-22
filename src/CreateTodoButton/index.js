@@ -10,7 +10,7 @@ function CreateTodoButton(props) {
     const isMobile = useMediaQuery({query: '(max-width: 600px)'});
 
     const onClickButton = () => {
-        props.setOpenModal(true);
+        props.setOpenModal(prevState => !prevState);
     }
     return (
         <div>

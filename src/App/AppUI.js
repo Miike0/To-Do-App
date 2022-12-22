@@ -8,6 +8,7 @@ import { CreateTodoButton } from "../CreateTodoButton";
 import { CurrentDate } from "../CurrentDate";
 import { TodoContext } from "../TodoContext";
 import { Modal } from "../Modal";
+import { TodoForm } from "../TodoForm";
 import './AppUI.css';
 
 function AppUI () {
@@ -55,7 +56,7 @@ function AppUI () {
 
                     {!!value.openModal && (
                         <Modal>
-                            <p>Prueba</p>
+                            <TodoForm/>
                         </Modal>
                     )}
 

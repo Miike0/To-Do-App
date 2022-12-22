@@ -89,6 +89,9 @@ html {
 .TodoItem_text_completed::-webkit-scrollbar {
     display: none;
 }
+.TodoItem-container_completed {
+    /* filter: grayscale(100%); */
+}
 @media only screen and (max-width: 600px) {
     .TodoItem_container {
         width: 270px;
