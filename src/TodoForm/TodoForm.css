@@ -52,6 +52,7 @@ html {
     padding: 5px;
     box-shadow: 0px 5px 5px var(--shadow-color);
     color: var(--font-color-input);
+    caret-color: var(--outline-color);
 
 }
 .ToDoForm-input:focus {
